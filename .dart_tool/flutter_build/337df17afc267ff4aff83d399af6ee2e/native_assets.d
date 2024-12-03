@@ -1,0 +1,1 @@
+ D:\\A\ 2024\ Intern\\Spa\\flutter_application_1\\.dart_tool\\flutter_build\\337df17afc267ff4aff83d399af6ee2e\\native_assets.yaml: 
