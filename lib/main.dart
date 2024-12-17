@@ -1,18 +1,30 @@
+import 'package:ebiz_spa/screens/test.dart';
 import 'package:flutter/material.dart';
-import 'screens/login_page.dart'; // Import trang login
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => EbizSpaApp(), // Wrap your app
+      ),
+    );
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class EbizSpaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: LoginPage(), // Đi tới trang Login Page
+      home: Test(),
+      // home: LoginScreen(),
+      theme: ThemeData(
+        primaryColor: Colors.teal,
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: Colors.tealAccent), // Harmonized color
+      ),
     );
   }
 }
